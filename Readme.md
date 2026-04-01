@@ -1,3 +1,5 @@
+OSPF PROJECT OVERVIEW SUMMARY : 
+
 This project demonstrates the design and implementation of a multi-router network using the OSPF (Open Shortest Path First) dynamic routing protocol in a simulated environment using GNS3. The topology consists of four routers (R1, R2, R3, and R4) interconnected through multiple subnets, forming a scalable and hierarchical network.
 
 All routers are configured within OSPF Area 0 (backbone area) to ensure proper route propagation and adjacency formation. Each router interface is assigned appropriate IP addressing, and OSPF is enabled using network statements with wildcard masks to dynamically advertise connected networks.
