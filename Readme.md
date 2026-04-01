@@ -1,59 +1,21 @@
-# OSPF 4 Router Lab (GNS3)
+This project demonstrates the design and implementation of a multi-router network using the OSPF (Open Shortest Path First) dynamic routing protocol in a simulated environment using GNS3. The topology consists of four routers (R1, R2, R3, and R4) interconnected through multiple subnets, forming a scalable and hierarchical network.
 
-## 📌 Overview
-This project demonstrates OSPF configuration in a 4-router topology using GNS3. The lab verifies end-to-end connectivity between two PCs across multiple routers.
+All routers are configured within OSPF Area 0 (backbone area) to ensure proper route propagation and adjacency formation. Each router interface is assigned appropriate IP addressing, and OSPF is enabled using network statements with wildcard masks to dynamically advertise connected networks.
 
----
+The lab focuses on establishing OSPF neighbor relationships between routers using Hello packets, followed by the exchange of Link-State Advertisements (LSAs). Once adjacency is formed, routers build a complete link-state database and calculate the shortest path using the Dijkstra SPF algorithm, ensuring optimal routing decisions.
 
-## 🖼️ Topology
-![Topology](image.png)
+Two end hosts (PC1 and PC2) are placed in different network segments to validate end-to-end connectivity. Default gateways are configured on both PCs, enabling traffic to traverse multiple routers. Successful ICMP ping tests confirm that OSPF has converged and routing tables are correctly populated across the network.
 
----
+Additionally, routing tables are verified using commands such as show ip route, where OSPF-learned routes are identified with the “O” code. Neighbor relationships are validated using show ip ospf neighbor, confirming full adjacency states between routers.
 
-## 🧠 Technologies Used
-- OSPF (Area 0)
-- Cisco IOS (Dynamips)
-- GNS3
-- VPCS
+This project demonstrates key networking concepts including:
 
----
+Dynamic routing using OSPF
+OSPF neighbor formation and adjacency states
+Use of wildcard masks in network statements
+Link-State Database (LSDB) synchronization
+Shortest Path First (SPF) algorithm for route calculation
+End-to-end connectivity across multiple routed networks
+Troubleshooting using routing and neighbor verification commands
 
-## 🌐 IP Addressing
-
-| Device | Interface | IP Address |
-|--------|----------|------------|
-| R1 | G0/0 | 30.0.0.1 |
-| R1 | G1/0 | 20.0.0.2 |
-| R2 | G0/0 | 30.0.0.2 |
-| R2 | G1/0 | 50.0.0.1 |
-| R3 | G0/0 | 20.0.0.1 |
-| R3 | G1/0 | 10.0.0.2 |
-| R4 | G0/0 | 50.0.0.2 |
-| R4 | G1/0 | 192.168.1.1 |
-| PC1 | e0 | 10.0.0.1 |
-| PC2 | e0 | 192.168.1.2 |
-
----
-
-## ⚙️ Configuration
-- OSPF configured in **Area 0**
-- All routers form adjacency
-- Routes are dynamically learned
-
----
-
-## ✅ Result
-- Successful ping from **PC1 → PC2**
-- End-to-end connectivity verified
-
----
-
-## 📂 Files Included
-- Router configs (R1, R2, R3, R4)
-- PC configs
-- Topology image
-
----
-
-## 🚀 Author
-**Syeeb Uddin Mallick**
+Overall, this lab provides hands-on experience with enterprise-level routing concepts and strengthens understanding of how OSPF operates in real-world network environments.
